@@ -22,7 +22,7 @@ function TodoForm({ onAddTodo }) {
         labelText="Todo"
         onChange={(e) => setWorkingTodoTitle(e.target.value)}
         value={workingTodoTitle}
-        inputRef={inputRef}
+        ref={inputRef}
       />
       <button type="submit" disabled={!isValidTodoTitle(workingTodoTitle)}>
         Add Todo

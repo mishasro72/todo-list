@@ -58,7 +58,6 @@ export default function TodosPage({ token }) {
       const response = await fetch(`/api/tasks/${id}`, options);
       if (!response.ok) {
         const errorText = await response.text();
-        console.log("SERVER RESPONSE:", errorText);
         throw new Error(`Completed update failed: ${errorText}`);
       }
       const data = await response.json();

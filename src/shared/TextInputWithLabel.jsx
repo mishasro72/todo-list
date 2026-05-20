@@ -1,22 +1,20 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-export default function TextInputWithLabel({
-  elementId,
-  labelText,
-  onChange,
-  ref,
-  value,
-}) {
-  return (
-    <>
-      <label htmlFor={elementId}>{labelText}</label>
-      <input
-        value={value}
-        onChange={onChange}
-        ref={ref}
-        type="text"
-        id={elementId}
-      />
-    </>
-  );
-}
+const TextInputWithLabel = forwardRef(
+  ({ elementId, labelText, onChange, value }, ref) => {
+    return (
+      <>
+        <label htmlFor={elementId}>{labelText}</label>
+        <input
+          value={value}
+          onChange={onChange}
+          ref={ref}
+          type="text"
+          id={elementId}
+        />
+      </>
+    );
+  },
+);
+
+export default TextInputWithLabel;

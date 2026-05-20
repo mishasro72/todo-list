@@ -1,6 +1,4 @@
 import "./App.css";
-import TodoList from "./features/Todos/TodoList/TodoList";
-import TodoForm from "./features/Todos/TodoForm";
 import { useState } from "react";
 import Header from "./shared/Header";
 import TodosPage from "./features/Todos/TodosPage";
@@ -12,8 +10,12 @@ function App() {
 
   return (
     <div>
-      <Header />
-      {token ? <TodosPage token={token} /> : <Logon onSetEmail={setEmail} onSetToken={setToken}/>}
+      <Header token={token} onSetToken={setToken} onSetEmail={setEmail} />
+      {token ? (
+        <TodosPage token={token} />
+      ) : (
+        <Logon onSetEmail={setEmail} onSetToken={setToken} />
+      )}
     </div>
   );
 }

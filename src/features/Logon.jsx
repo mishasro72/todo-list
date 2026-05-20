@@ -23,7 +23,6 @@ export default function Logon({ onSetEmail, onSetToken }) {
       if (response.status === 200 && data.name && data.csrfToken) {
         onSetEmail(data.name);
         onSetToken(data.csrfToken);
-        onSetToken;
       } else {
         setAuthError(`Authentication failed: ${data?.message}`);
       }

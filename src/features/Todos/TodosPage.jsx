@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import TodoForm from "/src/features/Todos/TodoForm";
+import TodoForm from "./TodoForm";
 import { useState } from "react";
-import TodoList from "/src/features/Todos/TodoList/TodoList";
+import TodoList from "./TodoList/TodoList";
 
 export default function TodosPage({ token }) {
   const [todoList, setTodoList] = useState([]);

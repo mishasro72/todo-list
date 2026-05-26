@@ -2,11 +2,18 @@ import React, { useEffect } from "react";
 import TodoForm from "./TodoForm";
 import { useState } from "react";
 import TodoList from "./TodoList/TodoList";
+import SortBy from "../../shared/SortBy";
+import FilterInput from "../../shared/FilterInput";
+import { useDebounce } from "../../utils/useDebounce";
 
 export default function TodosPage({ token }) {
   const [todoList, setTodoList] = useState([]);
   const [error, setError] = useState("");
   const [isTodoListLoading, setIsTodoListLoading] = useState(false);
+  const [sortBy, setSortBy] = useState("creationDate");
+  const [sortDirection, setSortDirection] = useState("desc");
+  const [filterTerm, setFilerTerm] = useState('');
+  const debouncedFilterTerm = useDebounce(filterTerm, 300);
 
   async function addTodo(todoTitle) {
     const todoItem = { id: Date.now(), title: todoTitle, isCompleted: false };
@@ -107,6 +114,10 @@ export default function TodosPage({ token }) {
     }
   }
 
+  function handleFilterChange(newTerm) {
+    setFilerTerm(newTerm);
+  }
+
   useEffect(() => {
     async function fetchTodos() {
       try {
@@ -116,7 +127,15 @@ export default function TodosPage({ token }) {
           headers: { "X-CSRF-TOKEN": token },
           credentials: "include",
         };
-        const response = await fetch("/api/tasks", options);
+        const paramsObject = {
+          sortBy,
+          sortDirection,
+        };
+        if(debouncedFilterTerm){
+          paramsObject.find = debouncedFilterTerm
+        }
+        const params = new URLSearchParams(paramsObject);
+        const response = await fetch(`/api/tasks?${params}`, options);
         if (!response.ok) {
           if (response.status === 401) {
             throw new Error("Unauthorized");
@@ -125,13 +144,13 @@ export default function TodosPage({ token }) {
         }
         const data = await response.json();
         if (data && data.tasks) {
-          const fetchTodos = data.tasks.map((todo) => ({
+          const formattedTodos = data.tasks.map((todo) => ({
             id: todo.id,
             title: todo.title,
             isCompleted: todo.isCompleted,
             createdAt: todo.createdAt,
           }));
-          setTodoList(fetchTodos);
+          setTodoList(formattedTodos);
         }
       } catch (error) {
         setError(`Error: ${error.name} | ${error.message}`);
@@ -142,7 +161,7 @@ export default function TodosPage({ token }) {
     if (token) {
       fetchTodos();
     }
-  }, [token]);
+  }, [token, sortBy, sortDirection, debouncedFilterTerm]);
 
   return (
     <div>
@@ -156,6 +175,13 @@ export default function TodosPage({ token }) {
         <p>Loading ...</p>
       ) : (
         <>
+          <SortBy
+            sortBy={sortBy}
+            sortDirection={sortDirection}
+            onSortByChange={setSortBy}
+            onSortDirectionChange={setSortDirection}
+          />
+          <FilterInput filterTerm={filterTerm} onFilterChange={setFilerTerm}/>
           <TodoForm onAddTodo={addTodo} />
           <TodoList
             todoList={todoList}

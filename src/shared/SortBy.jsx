@@ -18,7 +18,7 @@ export default function SortBy({
         <option value="creationDate">Creation Date</option>
         <option value="title">Title</option>
       </select>
-      <label htmlFor="order">Order by: </label>
+      <label htmlFor="order">Order: </label>
       <select
         name="order"
         id="order"

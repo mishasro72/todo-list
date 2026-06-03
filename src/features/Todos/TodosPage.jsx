@@ -9,8 +9,9 @@ import {
   initialTodoState,
   TODO_ACTIONS,
 } from "../../reducers/todoReducer";
+import { useAuth } from "../../context/AuthContext";
 
-export default function TodosPage({ token }) {
+export default function TodosPage() {
   const [state, dispatch] = useReducer(todoReducer, initialTodoState);
   const {
     todoList,
@@ -23,6 +24,7 @@ export default function TodosPage({ token }) {
     dataVersion,
   } = state;
   const debouncedFilterTerm = useDebounce(filterTerm, 500);
+  const { token } = useAuth();
 
   function handleFilterChange(newTerm) {
     dispatch({ type: TODO_ACTIONS.SET_FILTER, payload: newTerm });

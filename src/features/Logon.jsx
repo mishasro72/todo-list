@@ -15,7 +15,7 @@ export default function Logon() {
       setIsLogginOn(true);
       setAuthError(null);
 
-      const result = login(email, password);
+      const result = await login(email, password);
       if (!result.success) {
         setAuthError(result.error);
       }
@@ -24,27 +24,6 @@ export default function Logon() {
     } finally {
       setIsLogginOn(false);
     }
-
-    //   const options = {
-    //     method: "POST",
-    //     body: JSON.stringify({ email, password }),
-    //     headers: { "Content-Type": "application/json" },
-    //     credentials: "include",
-    //   };
-    //   const response = await fetch("/api/users/logon", options);
-    //   const data = await response.json();
-
-    //   if (response.status === 200 && data.name && data.csrfToken) {
-    //     onSetEmail(data.name);
-    //     onSetToken(data.csrfToken);
-    //   } else {
-    //     setAuthError(`Authentication failed: ${data?.message}`);
-    //   }
-    // } catch (error) {
-    //   setAuthError(`Error: ${error.name} | ${error.message}`);
-    // } finally {
-    //   setIsLogginOn(false);
-    // }
   }
   return (
     <>

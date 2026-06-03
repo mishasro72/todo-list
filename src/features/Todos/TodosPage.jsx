@@ -115,7 +115,8 @@ export default function TodosPage() {
     dispatch({
       type: TODO_ACTIONS.UPDATE_TODO_START,
       payload: {
-        editedTodo,
+        id: editedTodo.id,
+        editTodo: editedTodo,
       },
     });
     const options = {

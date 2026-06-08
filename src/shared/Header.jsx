@@ -9,7 +9,7 @@ export default function Header() {
       <h1>Todo List</h1>
       {isAuthenticated && (
         <div>
-          <span>Loggon</span>
+          <span>Logon</span>
           <Logoff />
         </div>
       )}

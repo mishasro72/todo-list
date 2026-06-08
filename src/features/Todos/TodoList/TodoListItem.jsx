@@ -3,8 +3,6 @@ import { isValidTodoTitle } from "../../../utils/todoValidation";
 import { useEditableTitle } from "../../../hooks/useEditableTitle";
 
 export default function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
-  // const [isEditing, setIsEditing] = useState(false);
-  // const [workingTitle, setWorkingTitle] = useState(todo.title);
 
   const {
     isEditing,

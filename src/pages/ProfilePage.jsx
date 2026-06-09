@@ -2,7 +2,7 @@ import { useAuth } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 
 export default function ProfilePage() {
-  const { token } = useAuth();
+  const { email, token } = useAuth();
   const [statistics, setStatistics] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,14 +42,14 @@ export default function ProfilePage() {
         if (total > 0) {
           completionPercentage = Math.round((completed / total) * 100);
         }
-        const userName = data?.tasks?.[0]?.User?.name || "User";
+        // const userName = data?.tasks?.[0]?.User?.name || "User";
 
         setStatistics({
           total,
           completed,
           active,
           completionPercentage,
-          userName,
+        //   userName,
         });
       } catch (error) {
         setError(`Error: ${error.name} | ${error.message}`);
@@ -84,7 +84,7 @@ export default function ProfilePage() {
               alignItems: "center",
             }}
           >
-            <h2>{`${statistics.userName}'s todo statistic:`}</h2>
+            <h2>{`${email}'s todo statistic:`}</h2>
           </div>
           <div
             style={{

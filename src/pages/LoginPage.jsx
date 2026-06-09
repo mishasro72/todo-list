@@ -31,7 +31,7 @@ export default function LoginPage() {
         setAuthError(result.error);
       }
     } catch (error) {
-      setAuthError(`rror: ${error.name} | ${error.message}`);
+      setAuthError(`Error: ${error.name} | ${error.message}`);
     } finally {
       setIsLogginOn(false);
     }

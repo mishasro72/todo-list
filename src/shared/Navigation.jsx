@@ -16,7 +16,7 @@ export default function Navigation() {
     <div>
       <nav>
         <ul
-          style={{ istStyle: "none", display: "flex", gap: "1rem", padding: 0 }}
+          style={{ listStyle: "none", display: "flex", gap: "1rem", padding: 0 }}
         >
           {/* <NavLink style={navLinkStyle} to="/" end>
             Home page

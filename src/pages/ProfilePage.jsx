@@ -38,9 +38,19 @@ export default function ProfilePage() {
         const total = allTasks.length;
         const completed = allTasks.filter((task) => task.isCompleted).length;
         const active = total - completed;
-        const userName = data.tasks[0].User.name;
+        let completionPercentage = 0;
+        if (total > 0) {
+          completionPercentage = Math.round((completed / total) * 100);
+        }
+        const userName = data?.tasks?.[0]?.User?.name || "User";
 
-        setStatistics({ total, completed, active, userName });
+        setStatistics({
+          total,
+          completed,
+          active,
+          completionPercentage,
+          userName,
+        });
       } catch (error) {
         setError(`Error: ${error.name} | ${error.message}`);
       } finally {
@@ -63,7 +73,7 @@ export default function ProfilePage() {
             display: "flex",
             gap: "20px",
             marginTop: "15px",
-            justifyContent: "center",
+            justifyContent: "space-around",
           }}
         >
           <div
@@ -79,6 +89,7 @@ export default function ProfilePage() {
           <div
             style={{
               display: "flex",
+              flex: 1,
               flexDirection: "column",
               padding: "15px",
               border: "1px solid #ccc",
@@ -97,6 +108,7 @@ export default function ProfilePage() {
           <div
             style={{
               display: "flex",
+              flex: 1,
               flexDirection: "column",
               padding: "15px",
               border: "1px solid #ccc",
@@ -114,6 +126,7 @@ export default function ProfilePage() {
           <div
             style={{
               display: "flex",
+              flex: 1,
               flexDirection: "column",
               padding: "15px",
               border: "1px solid #ccc",
@@ -126,6 +139,25 @@ export default function ProfilePage() {
 
             <p style={{ fontSize: "24px", margin: 0, fontWeight: "bold" }}>
               {statistics.completed}
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flex: 1,
+              flexDirection: "column",
+              padding: "15px",
+              border: "1px solid #ccc",
+              borderRadius: "8px",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <h3>Completion Percentage </h3>
+
+            <p style={{ fontSize: "24px", margin: 0, fontWeight: "bold" }}>
+              {statistics.completionPercentage}
             </p>
           </div>
         </div>

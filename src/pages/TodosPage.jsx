@@ -1,15 +1,15 @@
-import React, { useEffect, useReducer } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList/TodoList";
-import SortBy from "../../shared/SortBy";
-import FilterInput from "../../shared/FilterInput";
-import { useDebounce } from "../../utils/useDebounce";
+import { useEffect, useReducer } from "react";
+import TodoForm from "../features/Todos/TodoForm";
+import TodoList from "../features/Todos/TodoList/TodoList";
+import SortBy from "../shared/SortBy";
+import FilterInput from "../shared/FilterInput";
+import { useDebounce } from "../utils/useDebounce";
 import {
   todoReducer,
   initialTodoState,
   TODO_ACTIONS,
-} from "../../reducers/todoReducer";
-import { useAuth } from "../../context/AuthContext";
+} from "../reducers/todoReducer";
+import { useAuth } from "../context/AuthContext";
 
 export default function TodosPage() {
   const [state, dispatch] = useReducer(todoReducer, initialTodoState);
@@ -166,6 +166,8 @@ export default function TodosPage() {
         const paramsObject = {
           sortBy,
           sortDirection,
+          limit: 100,
+          page: 1,
         };
         if (debouncedFilterTerm) {
           paramsObject.find = debouncedFilterTerm;

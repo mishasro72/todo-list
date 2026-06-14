@@ -72,11 +72,6 @@
   letter-spacing: -0.01em;
 }
 
-/* @utility headline-lg {
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: -0.02em;
-} */
 
 @utility headline-md {
   font-family: "Inter", sans-serif;

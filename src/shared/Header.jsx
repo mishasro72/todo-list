@@ -7,8 +7,12 @@ import Navigation from "./Navigation";
 export default function Header() {
   const { email, isAuthenticated } = useAuth();
   return (
-    <div className="flex bg-surface-variant justify-evenly items-center shadow-md sticky top-0">
-      <h1 className="headline-md font-bold text-primary-light">
+    <div
+      className="flex bg-surface justify-center items-center shadow-sm sticky gap-30 top-0"
+      w-full
+      z-50
+    >
+      <h1 className="headline-md font-bold text-primary-light p-4">
         Todo List
       </h1>
       <Navigation />

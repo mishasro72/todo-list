@@ -44,3 +44,14 @@ To set up the project locally, follow these steps:
 - Library: React
 - Build Tool: Vite
 - Language: JavaScript (JSX)
+
+## Third-Party Assets
+
+This project uses icons from the Ionic Icons project.
+
+Ionicons is licensed under the MIT License.
+
+Copyright (c) 2015-present Ionic (http://ionic.io/)
+
+For more information, see:
+https://github.com/ionic-team/ionicons/blob/main/LICENSE

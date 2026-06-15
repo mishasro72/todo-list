@@ -15,9 +15,12 @@ export default function StatusFilter() {
   };
 
   return (
-    <div>
-      <label htmlFor="statusFilter">Show:</label>
+    <div className="lex flex-col gap-1">
+      <label className="label-sm text-outline ml-1" htmlFor="statusFilter">
+        Show:
+      </label>
       <select
+        className="bg-slate-50 border-slate-100 rounded-xl body-sm py-2 px-3 focus:ring-primary-light"
         id="statusFilter"
         value={currentStatus}
         onChange={(e) => handleStatusChange(e.target.value)}

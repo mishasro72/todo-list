@@ -44,22 +44,24 @@ function TodoList({
 
   return (
     <>
-      {filteredTodoList.todos.length === 0 ? (
-        <p>{getEmptyMessage()}</p>
-      ) : (
-        <ul>
-          {filteredTodoList.todos.map((todo) => {
-            return (
-              <TodoListItem
-                key={todo.id}
-                todo={todo}
-                onCompleteTodo={onCompleteTodo}
-                onUpdateTodo={onUpdateTodo}
-              />
-            );
-          })}
-        </ul>
-      )}
+      <section className="space-y-stack-gap">
+        {filteredTodoList.todos.length === 0 ? (
+          <p>{getEmptyMessage()}</p>
+        ) : (
+          <ul>
+            {filteredTodoList.todos.map((todo) => {
+              return (
+                <TodoListItem
+                  key={todo.id}
+                  todo={todo}
+                  onCompleteTodo={onCompleteTodo}
+                  onUpdateTodo={onUpdateTodo}
+                />
+              );
+            })}
+          </ul>
+        )}
+      </section>
     </>
   );
 }

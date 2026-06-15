@@ -38,8 +38,8 @@ export default function LoginPage() {
   }
   return (
     <>
-      <main className="lex-grow flex items-center justify-center px-5 py-24">
-        <div className="w-full max-w-[400px] bg-surface-container-lowest border border-outline-variant rounded-xl elevation-level-1 overflow-hidden">
+      <main className="flex-grow flex items-center justify-center px-5 py-24">
+        <div className="w-full max-w-100 bg-surface-container-lowest border border-outline-variant rounded-xl elevation-level-1 overflow-hidden">
           <div className="relative h-32 bg-primary-container-light overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
               <svg
@@ -69,14 +69,14 @@ export default function LoginPage() {
 
           <div className="p-8 pt-10 pb-20">
             <div className="mb-8 text-center">
-              <h1 className="text-2xl font-bold text-on-surface mb-2">Logon</h1>
+              <h1 className="headline-md text-on-surface mb-2">Logon</h1>
               <p className="text-sm text-on-surface-variant">
                 Welcome back. Let's get things done.
               </p>
             </div>
             <div>
               {authError && (
-                <p className="text-red-500 text-sm">ERROR: {authError}</p>
+                <p className="body-sm font-semibold text-on-error-container m-0">ERROR: {authError}</p>
               )}
               <form onSubmit={handleSubmit}>
                 <div className="pb-3">
@@ -114,7 +114,7 @@ export default function LoginPage() {
                     text-sm
                     font-semibold
                     text-on-surface-variant"
-                    htmlFor="password-input pb-2"
+                    htmlFor="password-input"
                   >
                     Password{" "}
                   </label>

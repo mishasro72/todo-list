@@ -47,11 +47,14 @@ To set up the project locally, follow these steps:
 
 ## Third-Party Assets
 
-This project uses icons from the Ionic Icons project.
+This project uses third-party icons distributed under the MIT License.
 
-Ionicons is licensed under the MIT License.
-
+Ionicons
 Copyright (c) 2015-present Ionic (http://ionic.io/)
-
 For more information, see:
 https://github.com/ionic-team/ionicons/blob/main/LICENSE
+
+Microsoft Icons
+Copyright (c) 2020 Microsoft Corporation
+For more information, see:
+https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE

@@ -224,71 +224,79 @@ export default function TodosPage() {
   }, [token, sortBy, sortDirection, debouncedFilterTerm]);
 
   return (
-    <div>
-      {error && (
+    <>
+      <main className="max-w-2xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-12 bg-surface body-md text-on-surface min-h-screen">
         <div>
-          <p style={{ color: "red", fontSize: "15px" }}>ERROR: {error}</p>
-          <button onClick={() => dispatch({ type: TODO_ACTIONS.CLEAR_ERROR })}>
-            Clear Error
-          </button>
+          {error && (
+            <div>
+              <p style={{ color: "red", fontSize: "15px" }}>ERROR: {error}</p>
+              <button
+                onClick={() => dispatch({ type: TODO_ACTIONS.CLEAR_ERROR })}
+              >
+                Clear Error
+              </button>
+            </div>
+          )}
+          {isTodoListLoading ? (
+            <p>Loading ...</p>
+          ) : (
+            <>
+              <SortBy
+                sortBy={sortBy}
+                sortDirection={sortDirection}
+                onSortByChange={(newSortBy) =>
+                  dispatch({
+                    type: TODO_ACTIONS.SET_SORT,
+                    payload: {
+                      sortBy: newSortBy,
+                      sortDirection,
+                    },
+                  })
+                }
+                onSortDirectionChange={(newSortDir) =>
+                  dispatch({
+                    type: TODO_ACTIONS.SET_SORT,
+                    payload: {
+                      sortBy,
+                      sortDirection: newSortDir,
+                    },
+                  })
+                }
+              />
+              <StatusFilter />
+              <FilterInput
+                filterTerm={filterTerm}
+                onFilterChange={handleFilterChange}
+              />
+              <TodoForm onAddTodo={addTodo} />
+              <TodoList
+                todoList={todoList}
+                onCompleteTodo={completeTodo}
+                onUpdateTodo={updateTodo}
+                dataVersion={dataVersion}
+                statusFilter={statusFilter}
+              />
+            </>
+          )}
+          {filterError && (
+            <div>
+              <p>{filterError}</p>
+              <button
+                onClick={() =>
+                  dispatch({ type: TODO_ACTIONS.CLEAR_FILTER_ERROR })
+                }
+              >
+                Clear Filter Error
+              </button>
+              <button
+                onClick={() => dispatch({ type: TODO_ACTIONS.RESET_FILTERS })}
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
         </div>
-      )}
-      {isTodoListLoading ? (
-        <p>Loading ...</p>
-      ) : (
-        <>
-          <SortBy
-            sortBy={sortBy}
-            sortDirection={sortDirection}
-            onSortByChange={(newSortBy) =>
-              dispatch({
-                type: TODO_ACTIONS.SET_SORT,
-                payload: {
-                  sortBy: newSortBy,
-                  sortDirection,
-                },
-              })
-            }
-            onSortDirectionChange={(newSortDir) =>
-              dispatch({
-                type: TODO_ACTIONS.SET_SORT,
-                payload: {
-                  sortBy,
-                  sortDirection: newSortDir,
-                },
-              })
-            }
-          />
-          <StatusFilter />
-          <FilterInput
-            filterTerm={filterTerm}
-            onFilterChange={handleFilterChange}
-          />
-          <TodoForm onAddTodo={addTodo} />
-          <TodoList
-            todoList={todoList}
-            onCompleteTodo={completeTodo}
-            onUpdateTodo={updateTodo}
-            dataVersion={dataVersion}
-            statusFilter={statusFilter}
-          />
-        </>
-      )}
-      {filterError && (
-        <div>
-          <p>{filterError}</p>
-          <button
-            onClick={() => dispatch({ type: TODO_ACTIONS.CLEAR_FILTER_ERROR })}
-          >
-            Clear Filter Error
-          </button>
-          <button
-            onClick={() => dispatch({ type: TODO_ACTIONS.RESET_FILTERS })}
-          >
-            Reset Filters
-          </button>
-        </div>
-      )}
-    </div>
+      </main>
+    </>
   );
 }

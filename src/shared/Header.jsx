@@ -18,7 +18,7 @@ export default function Header() {
       <Navigation />
       {isAuthenticated && (
         <div>
-          <span>{email}</span>
+          <span className="text-label-md font-label-md text-on-surface-variant pr-4">{email}</span>
           <Logoff />
         </div>
       )}

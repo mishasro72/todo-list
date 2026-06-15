@@ -44,7 +44,7 @@ export default function LoginPage() {
             <div className="absolute inset-0 flex items-center justify-center">
               <svg
                 viewBox="0 0 512 512"
-                className="w-16 h-16 text-on-primary-container-light stroke-[3] drop-shadow-sm"
+                className="w-16 h-16 text-on-primary-container-light stroke-3 drop-shadow-sm"
               >
                 <title>Cloud Done Outline SVG Icon</title>
 

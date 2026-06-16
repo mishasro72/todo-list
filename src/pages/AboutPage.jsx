@@ -1,4 +1,46 @@
 export default function AboutPage() {
+  const icons = {
+    0: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-10 h-10 bg-secondary-container text-primary-light rounded-xl flex items-center justify-center mb-4                   hover:text-on-surface transition-colors"
+      >
+        <title>Clipboard Task List 24 Regular SVG Icon</title>
+        <path
+          fill="currentColor"
+          d="M12.5 10.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75m.75 4.75a.75.75 0 1 0 0 1.5h3.5a.75.75 0 1 0 0-1.5zm-2.47-5.22a.75.75 0 1 0-1.06-1.06l-1.47 1.47l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0zm0 4.44a.75.75 0 0 1 0 1.06l-2 2a.75.75 0 0 1-1.06 0l-1-1a.75.75 0 1 1 1.06-1.06l.47.47l1.47-1.47a.75.75 0 0 1 1.06 0m5.214-10.136A2.25 2.25 0 0 0 13.75 2h-3.5a2.25 2.25 0 0 0-2.236 2H6.25A2.25 2.25 0 0 0 4 6.25v13.5A2.25 2.25 0 0 0 6.25 22h11.5A2.25 2.25 0 0 0 20 19.75V6.25A2.25 2.25 0 0 0 17.75 4h-1.764zm0 .012L16 4.25q0-.078-.005-.154M10.25 6.5h3.5c.78 0 1.467-.397 1.871-1h2.129a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H6.25a.75.75 0 0 1-.75-.75V6.25a.75.75 0 0 1 .75-.75h2.129c.404.603 1.091 1 1.871 1m0-3h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1 0-1.5"
+        />
+      </svg>
+    ),
+    1: (
+      <svg
+        viewBox="0 0 24 24"
+        className="aw-10 h-10 bg-secondary-container text-primary-light rounded-xl flex items-center justify-center mb-4                   hover:text-on-surface transition-colors"
+      >
+        <title>Bxs Lock SVG Icon</title>
+        <path
+          fill="currentColor"
+          d="M12 2C9.243 2 7 4.243 7 7v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7c0-2.757-2.243-5-5-5zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7zm4 10.723V20h-2v-2.277a1.993 1.993 0 0 1 .567-3.677A2.001 2.001 0 0 1 14 16a1.99 1.99 0 0 1-1 1.723z"
+        />
+      </svg>
+    ),
+    2: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-10 h-10 bg-secondary-container text-primary-light rounded-xl flex items-center justify-center mb-4                   hover:text-on-surface transition-colors"
+      >
+        <title>Navigation SVG Icon</title>
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="m3 11l19-9l-9 19l-2-8z"
+        />
+      </svg>
+    ),
+  };
   const features = [
     {
       title: "Task Management",
@@ -36,115 +78,72 @@ export default function AboutPage() {
   ];
 
   return (
-    <div
-      style={{
-        maxWidth: 800,
-        margin: "40px auto",
-        padding: "0 20px",
-        fontFamily: "system-ui, sans-serif",
-        color: "#333",
-      }}
-    >
-      <section style={{ textAlign: "center", marginBottom: 40 }}>
-        <h1 style={{ fontSize: "2.5rem", marginBottom: 10, color: "#111" }}>
-          Todo Application
-        </h1>
-        <p style={{ fontSize: "1.2rem", color: "#666", margin: 0 }}>
-          A modern, secure, and lightning-fast task management platform.
-        </p>
-      </section>
+    <>
+      <main className="max-w-2xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-12 bg-surface body-md text-on-surface min-h-screen">
+        <div>
+          <section className="text-center space-y-4">
+            <h1 className="headline-lg-mobile md:headline-lg text-on-surface">
+              Todo Application
+            </h1>
+            <p className="body-md text-on-surface-variant max-w-md mx-auto">
+              A modern, secure, and lightning-fast task management platform.
+            </p>
+          </section>
 
-      <hr
-        style={{
-          border: "none",
-          borderTop: "1px solid #eee",
-          marginBottom: 40,
-        }}
-      />
-
-      <section style={{ marginBottom: 40 }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: 20, color: "#222" }}>
-          Application Features
-        </h2>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: 20,
-          }}
-        >
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              style={{
-                padding: 20,
-                border: "1px solid #e0e0e0",
-                borderRadius: 8,
-                backgroundColor: "#fafafa",
-              }}
-            >
-              <h3 style={{ marginTop: 0, marginBottom: 10, color: "#0066cc" }}>
-                {feature.title}
-              </h3>
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "0.95rem",
-                  lineHeight: "1.5",
-                  color: "#555",
-                }}
-              >
-                {feature.description}
-              </p>
+          <div className="h-1 w-12 bg-primary-container-light mx-auto rounded-full mt-6"></div>
+          <section className="py-6">
+            <div className="flex items-center justify-between pb-4">
+              <h2 className="headline-md text-on-surface">
+                Application Features
+              </h2>
+              <div className="h-px flex-1 bg-outline-variant ml-4"></div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section style={{ marginBottom: 40 }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: 20, color: "#222" }}>
-          Technologies Used
-        </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
-          {technologies.map((tech, index) => (
-            <div
-              key={index}
-              style={{
-                display: "flex",
-                padding: 15,
-                borderLeft: "4px solid #0066cc",
-                backgroundColor: "#f4f9ff",
-                borderRadius: "0 8px 8px 0",
-              }}
-            >
-              <div style={{ minWidth: 140 }}>
-                <strong style={{ fontSize: "1.1rem" }}>{tech.name}</strong>
-                <span
-                  style={{
-                    marginLeft: 8,
-                    fontSize: "0.85rem",
-                    color: "#888",
-                    backgroundColor: "#e1ecf4",
-                    padding: "2px 6px",
-                    borderRadius: 4,
-                  }}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-gap">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-surface-container-lowest p-6 rounded-2xl border border-slate-100 soft-elevation hover-elevation transition-all duration-300"
                 >
-                  {tech.version}
-                </span>
-              </div>
-              <div
-                style={{
-                  fontSize: "0.95rem",
-                  color: "#444",
-                  lineHeight: "1.4",
-                }}
-              >
-                {tech.role}
-              </div>
+                  {icons[index]}
+                  <h3 className="label-md text-primary-light mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="body-sm text-on-surface-variant">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          <section className="py-6">
+            <div className="flex items-center justify-between pb-4">
+              <h2 className="headline-md text-on-surface">Technologies Used</h2>
+              <div className="h-px flex-1 bg-outline-variant ml-4"></div>
+            </div>
+            <div className="flex flex-col gap-4">
+              {technologies.map((tech, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col md:flex-row md:items-center gap-4 p-5 bg-surface-container-low rounded-2xl border-l-4 border-primary-light hover:bg-white transition-colors duration-200"
+                >
+                  <div className="flex items-center gap-3 min-w-35">
+                    <span className="label-md text-on-surface">
+                      {tech.name}
+                    </span>
+                    <span className="bg-outline-variant text-on-surface-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                      {tech.version}
+                    </span>
+                  </div>
+                  <p className="text-body-sm font-body-sm text-on-surface-variant">
+                    {tech.role}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </main>
+    </>
   );
 }

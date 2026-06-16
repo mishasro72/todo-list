@@ -7,7 +7,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated) navigat("/todos", { replace: true });
+    if (isAuthenticated) navigate("/todos", { replace: true });
     else {
       navigate("/login", { replace: true });
     }

@@ -2,39 +2,32 @@ import { useAuth } from "../context/AuthContext";
 import { NavLink } from "react-router";
 
 export default function Navigation() {
-  function navLinkStyle({ isActive }) {
-    return {
-      fontWeight: isActive ? "bold" : "normal",
-      textDecoration: isActive ? "underline" : "none",
-      padding: "2px 6px",
-      borderRadius: 6,
-      backgroundColor: isActive ? "#eee" : "transparent",
-    };
-  }
+  const navlinksstyle = ({ isActive }) =>
+    `label-md p-1 rounded-md transition-colors hover:bg-surface-container hover:text-on-surface ${
+      isActive
+        ? "text-primary-light font-bold border-b-2"
+        : "text-on-surface-variant"
+    }`;
+
   const { isAuthenticated } = useAuth();
   return (
-    <div>
-      <nav>
-        <ul
-          style={{ listStyle: "none", display: "flex", gap: "1rem", padding: 0 }}
-        >
-          {/* <NavLink style={navLinkStyle} to="/" end>
-            Home page
-          </NavLink> */}
-          <NavLink style={navLinkStyle} to="/about">
+    <div className="flex justify-center items-center">
+      <nav className="flex justify-center items-center w-full px-8 py-3 max-w-container-max mx-auto gap-2">
+        <ul className="list-none flex flex-col md:flex-row gap-3 p-0 justify-around items-center">
+          <NavLink className={navlinksstyle} to="/about">
             About
           </NavLink>
           {isAuthenticated ? (
             <>
-              <NavLink style={navLinkStyle} to="/todos">
+              <NavLink className={navlinksstyle} to="/todos">
                 Todo page
               </NavLink>
-              <NavLink style={navLinkStyle} to="/profile">
+              <NavLink className={navlinksstyle} to="/profile">
                 Profile page
               </NavLink>
             </>
           ) : (
-            <NavLink style={navLinkStyle} to="/login">
+            <NavLink className={navlinksstyle} to="/login">
               Login page
             </NavLink>
           )}

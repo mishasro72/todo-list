@@ -5,7 +5,6 @@ export default function Logoff() {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
-
   const handleLogout = async () => {
     const result = await logout();
     if (result.success) {
@@ -15,5 +14,12 @@ export default function Logoff() {
     }
   };
 
-  return <button onClick={handleLogout}>Logoff</button>;
+  return (
+    <button
+      className="bg-surface-container-low text-primary-light px-3 py-1 rounded-lg text-label-md font-label-md hover:bg-surface-container-high active:scale-95 transition-all duration-200"
+      onClick={handleLogout}
+    >
+      Logoff
+    </button>
+  );
 }

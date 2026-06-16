@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { useContext, createContext, useState } from "react";
 
@@ -12,11 +13,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  // State for authentication
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
 
-  // Functions will go here...
   const login = async (userEmail, password) => {
     try {
       const options = {
@@ -30,13 +29,11 @@ export function AuthProvider({ children }) {
       const data = await res.json();
 
       if (res.status === 200 && data.name && data.csrfToken) {
-        // Success: Update state
         setEmail(data.name);
         setToken(data.csrfToken);
         return { success: true };
       } else {
-        // Failure: Return error
-        return {
+            return {
           success: false,
           error: `Authentication failed: ${data?.message}`,
         };
@@ -44,7 +41,7 @@ export function AuthProvider({ children }) {
     } catch (error) {
       return {
         success: false,
-        error: "Network error during login",
+        error: `Network error during login. Details: ${error.message}`,
       };
     }
   };
@@ -79,7 +76,7 @@ export function AuthProvider({ children }) {
     } catch (error) {
       return {
         success: false,
-        error: "Network error during logout, local state cleared",
+        error: `Network error during logout, local state cleared. Details: ${error.message}`,
       };
     } finally {
       setEmail("");
@@ -87,7 +84,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Context value object
   const value = {
     email,
     token,

@@ -1,12 +1,7 @@
 # Todo List App
 
 ## Description
-This is a **Single-Page Application (SPA)** built using **React** and **Vite**. This project was developed as part of the [Code the Dream](https://classes.codethedream.org/course/react-v4/react-26.2?week=1&lesson=Intro%20to%20React,%20App%20Installation,%20Vite) React curriculum. 
-
-The application allows users to manage a list of tasks. It demonstrates core React concepts such as:
-* Functional components and JSX.
-* Rendering lists using the `.map()` method.
-* Managing application state and props.
+A modern, highly responsive, and feature-rich task management Single-Page Application (SPA) designed in accordance with Material Design 3 principles. Developed as a flagship project within the [Code the Dream](https://classes.codethedream.org) React curriculum.
 
 ---
 
@@ -36,8 +31,7 @@ To set up the project locally, follow these steps:
     npm run dev
 
 
-2. **Then open your browser and go to:** http://localhost:5173
-
+2. **Then open your browser and go to:** http://localhost:3001/todos
 ---
 
 ## Tech Stack
@@ -58,3 +52,7 @@ Microsoft Icons
 Copyright (c) 2020 Microsoft Corporation
 For more information, see:
 https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE
+
+
+Copyright (c) 2020-2026 Paweł Kuna
+https://github.com/tabler/tabler-icons/blob/main/LICENSE

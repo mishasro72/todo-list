@@ -46,7 +46,9 @@ function TodoList({
     <>
       <section className="space-y-stack-gap">
         {filteredTodoList.todos.length === 0 ? (
-          <p>{getEmptyMessage()}</p>
+          <p className="pt-10 text-center text-primary-container-light">
+            {getEmptyMessage()}
+          </p>
         ) : (
           <ul>
             {filteredTodoList.todos.map((todo) => {

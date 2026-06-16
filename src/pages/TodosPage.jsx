@@ -246,11 +246,11 @@ export default function TodosPage() {
             <>
               <TodoForm onAddTodo={addTodo} />
               <section className="bg-white p-5 rounded-2xl shadow-ambient border border-slate-100 space-y-4">
+                <FilterInput
+                  filterTerm={filterTerm}
+                  onFilterChange={handleFilterChange}
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <FilterInput
-                    filterTerm={filterTerm}
-                    onFilterChange={handleFilterChange}
-                  />
                   <SortBy
                     sortBy={sortBy}
                     sortDirection={sortDirection}

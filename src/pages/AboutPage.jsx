@@ -91,13 +91,12 @@ export default function AboutPage() {
           </section>
 
           <div className="h-1 w-12 bg-primary-container-light mx-auto rounded-full mt-6"></div>
-
           <section className="py-6">
             <div className="flex items-center justify-between pb-4">
               <h2 className="headline-md text-on-surface">
                 Application Features
               </h2>
-              <div class="h-px flex-1 bg-outline-variant ml-4"></div>
+              <div className="h-px flex-1 bg-outline-variant ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-gap">
               {features.map((feature, index) => (

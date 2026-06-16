@@ -15,7 +15,7 @@ export default function StatusFilter() {
   };
 
   return (
-    <div className="lex flex-col gap-1">
+    <div className="flex flex-col gap-1">
       <label className="label-sm text-outline ml-1" htmlFor="statusFilter">
         Show:
       </label>

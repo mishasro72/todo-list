@@ -12,11 +12,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  // State for authentication
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
 
-  // Functions will go here...
   const login = async (userEmail, password) => {
     try {
       const options = {
@@ -30,13 +28,11 @@ export function AuthProvider({ children }) {
       const data = await res.json();
 
       if (res.status === 200 && data.name && data.csrfToken) {
-        // Success: Update state
         setEmail(data.name);
         setToken(data.csrfToken);
         return { success: true };
       } else {
-        // Failure: Return error
-        return {
+            return {
           success: false,
           error: `Authentication failed: ${data?.message}`,
         };
@@ -87,7 +83,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Context value object
   const value = {
     email,
     token,

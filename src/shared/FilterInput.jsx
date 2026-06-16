@@ -7,7 +7,7 @@ export default function FilterInput({ filterTerm, onFilterChange }) {
       <div className="relative group">
         <svg
           viewBox="0 0 24 24"
-          className="w-6 h-6 absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]"
+          className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]"
           fill="none"
         >
           <title>Ai Search SVG Icon</title>

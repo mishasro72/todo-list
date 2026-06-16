@@ -22,7 +22,7 @@ function TodoForm({ onAddTodo }) {
       </h1>
       <div className="relative group">
         <form
-          className="flex flex-col sm:flex-row gap-3 bg-surface-container-lowest p-2 rounded-2xl shadow-ambient border border-outline-variant/30 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-4 sm:items-end"
+          className="flex flex-col sm:flex-row gap-3 p-5 bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-4 sm:items-end"
           onSubmit={handleAddTodo}
         >
           <TextInputWithLabel

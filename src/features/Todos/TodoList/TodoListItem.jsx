@@ -80,13 +80,14 @@ export default function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
           </>
         ) : (
           <>
-            <label className="relative flex items-center justify-center cursor-pointer shrink-0 w-4 h-4 m-2">
+            <div className="relative flex items-center justify-center cursor-pointer shrink-0 w-4 h-4 m-2">
               <input
                 className="text-center peer absolute opacity-0 w-4 h-4 cursor-pointer z-10"
                 type="checkbox"
                 id={`checkbox${todo.id}`}
                 checked={todo.isCompleted}
                 onChange={() => onCompleteTodo(todo.id)}
+                aria-label={`Mark "${todo.title}" as completed`}
               />
               <div className="checkbox-custom w-4 h-4 border-2 border-outline rounded-full flex items-center justify-center transition-all duration-200 bg-surface-container-lowest peer-checked:bg-primary-light peer-checked:border-primary-light text-on-primary-light">
                 <svg
@@ -101,7 +102,7 @@ export default function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-            </label>
+            </div>
             <span
               onClick={() => startEditing()}
               className={`body-md text-on-surface ml-2 cursor-pointer transition-all duration-200 ${

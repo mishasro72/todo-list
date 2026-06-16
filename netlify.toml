@@ -3,3 +3,6 @@
   to = "https://ctd-learns-node-l42tx.ondigitalocean.app/api/:splat"
   status = 200
   force = true
+
+  [redirects.headers]
+    X-Same-Origin-Proxy = "netlify"

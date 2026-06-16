@@ -11,9 +11,9 @@ export default function Navigation() {
 
   const { isAuthenticated } = useAuth();
   return (
-    <div className="hidden md:flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <nav className="flex justify-center items-center w-full px-8 py-3 max-w-container-max mx-auto gap-2">
-        <ul className="list-none flex gap-3 p-0 justify-around">
+        <ul className="list-none flex flex-col md:flex-row gap-3 p-0 justify-around items-center">
           <NavLink className={navlinksstyle} to="/about">
             About
           </NavLink>

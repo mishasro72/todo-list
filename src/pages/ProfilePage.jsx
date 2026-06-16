@@ -125,7 +125,7 @@ export default function ProfilePage() {
                   </div>
                 </div>
               </section>
-              <div className="bg-primary-container-light text-on-primary-container-light p-6 rounded-xl border border-primary-light shadow-lg flex flex-col items-center text-center relative overflow-hidden md:col-span-2 lg:col-span-1">
+              <div className="bg-primary-container-light text-white p-6 rounded-xl border border-primary-light shadow-lg flex flex-col items-center text-center relative overflow-hidden md:col-span-2 lg:col-span-1">
                 <span className="body-md-bold uppercase tracking-widest mb-4 opacity-90">
                   Completion Rate
                 </span>
@@ -169,7 +169,7 @@ export default function ProfilePage() {
                     </svg>
                   </div>
                 </div>
-                <p className="body-md text-inverse-on-surface opacity-80">
+                <p className="body-md text-white opacity-80">
                   {statistics.completionPercentage >= 90
                     ? "Elite Performance Level!"
                     : "Keep it up!"}

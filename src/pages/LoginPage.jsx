@@ -38,7 +38,7 @@ export default function LoginPage() {
   }
   return (
     <>
-      <main className="flex-grow flex items-center justify-center px-5 py-24">
+      <main className="grow flex items-center justify-center px-5 py-24">
         <div className="w-full max-w-100 bg-surface-container-lowest border border-outline-variant rounded-xl elevation-level-1 overflow-hidden">
           <div className="relative h-32 bg-primary-container-light overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">

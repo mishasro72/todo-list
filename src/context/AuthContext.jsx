@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { useContext, createContext, useState } from "react";
 
@@ -40,7 +41,7 @@ export function AuthProvider({ children }) {
     } catch (error) {
       return {
         success: false,
-        error: "Network error during login",
+        error: `Network error during login. Details: ${error.message}`,
       };
     }
   };
@@ -75,7 +76,7 @@ export function AuthProvider({ children }) {
     } catch (error) {
       return {
         success: false,
-        error: "Network error during logout, local state cleared",
+        error: `Network error during logout, local state cleared. Details: ${error.message}`,
       };
     } finally {
       setEmail("");

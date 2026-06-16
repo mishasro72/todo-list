@@ -12,8 +12,8 @@ export default function Header() {
       w-full
       z-50"
     >
-      <div className="max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-center items-center w-full">
-        <h1 className="headline-md text-primary-light pr-10 whitespace-nowrap select-none">
+      <div className="max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex flex-col md:flex-row justify-center items-center w-full">
+        <h1 className="headline-md text-primary-light md:pr-10 whitespace-nowrap select-none">
           Todo List
         </h1>
         <Navigation />

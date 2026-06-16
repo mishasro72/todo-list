@@ -3,6 +3,8 @@
 ## Description
 A modern, highly responsive, and feature-rich task management Single-Page Application (SPA) designed in accordance with Material Design 3 principles. Developed as a flagship project within the [Code the Dream](https://classes.codethedream.org) React curriculum.
 
+
+**[Live Demo Application](https://todo-list-606qkukc7-mishasro72-8214s-projects.vercel.app/login)
 ---
 
 ## 🚀 Features & Functionality Matrix

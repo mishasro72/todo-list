@@ -15,7 +15,7 @@ export default function AboutPage() {
     1: (
       <svg
         viewBox="0 0 24 24"
-        className="aw-10 h-10 bg-secondary-container text-primary-light rounded-xl flex items-center justify-center mb-4                   hover:text-on-surface transition-colors"
+        className="w-10 h-10 bg-secondary-container text-primary-light rounded-xl flex items-center justify-center mb-4                   hover:text-on-surface transition-colors"
       >
         <title>Bxs Lock SVG Icon</title>
         <path

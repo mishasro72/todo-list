@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth } from "../context/AuthContext";
+import DOMPurify from "dompurify";
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -26,7 +27,9 @@ export default function LoginPage() {
       setIsLogginOn(true);
       setAuthError(null);
 
-      const result = await login(email, password);
+      const sanitizedEmail = DOMPurify.sanitize(email).trim();
+      const sanitizedPassword = DOMPurify.sanitize(password);
+      const result = await login(sanitizedEmail, sanitizedPassword);
       if (!result.success) {
         setAuthError(result.error);
       }
@@ -104,6 +107,7 @@ export default function LoginPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      maxLength={100}
                       placeholder="name@example.com"
                     />
                   </div>
@@ -134,6 +138,7 @@ export default function LoginPage() {
                       id="password-input"
                       type="password"
                       value={password}
+                      maxLength={100}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       required

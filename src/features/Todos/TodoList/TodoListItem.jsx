@@ -41,11 +41,13 @@ export default function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
             />
             <div className="flex items-center gap-2 self-end h-11.5 ml-3">
               <button
-                className="h-11.5 p-2 text-outline hover:text-red-900 hover:bg-red-300 rounded-lg transition-colors duration-200 opacity-0 group-hover:opacity-100 align-bottom"
+                className="h-11.5 p-2 text-red-900 bg-red-300 md:bg-transparent md:text-outline hover:text-red-900 hover:bg-red-300 rounded-lg transition-colors duration-200 
+           opacity-100 md:opacity-0 md:group-hover:opacity-100 align-bottom"
                 type="button"
                 onClick={handleCancel}
               >
                 <svg viewBox="0 0 512 512" className="w-6 h-6">
+                  <title>Cancel edit SVG Icon</title>
                   <path
                     fill="currentColor"
                     fillRule="evenodd"
@@ -54,7 +56,7 @@ export default function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
                 </svg>
               </button>
               <button
-                className="h-11.5 p-2 text-outline hover:text-green-800 hover:bg-green-300 rounded-lg transition-colors duration-200 opacity-0 group-hover:opacity-100 item-end"
+                className="h-11.5 p-2 text-green-800 bg-green-300 md:bg-transparent md:text-outline hover:text-green-800 hover:bg-green-300 rounded-lg transition-colors duration-200 opacity-100 md:opacity-0 group-hover:opacity-100 item-end"
                 type="button"
                 onClick={handleUpdate}
                 disabled={!isValidTodoTitle(workingTitle)}

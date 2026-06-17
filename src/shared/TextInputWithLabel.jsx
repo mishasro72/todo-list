@@ -14,6 +14,7 @@ const TextInputWithLabel = forwardRef(
             ref={ref}
             type="text"
             id={elementId}
+            maxLength={100}
             className="flex-1 border-none bg-slate-50 rounded-xl px-4 py-3 text-body-md font-body-md focus:ring-0 placeholder:text-outline w-full"
             placeholder="Add a new task..."
           />

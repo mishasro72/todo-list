@@ -107,6 +107,7 @@ export default function LoginPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      maxLength={100}
                       placeholder="name@example.com"
                     />
                   </div>
@@ -137,6 +138,7 @@ export default function LoginPage() {
                       id="password-input"
                       type="password"
                       value={password}
+                      maxLength={100}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       required

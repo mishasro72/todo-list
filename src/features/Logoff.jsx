@@ -9,8 +9,6 @@ export default function Logoff() {
     const result = await logout();
     if (result.success) {
       navigate("/login");
-    } else {
-      console.error(result.error);
     }
   };
 

@@ -286,20 +286,66 @@ export default function TodosPage() {
             </>
           )}
           {filterError && (
-            <div>
-              <p>{filterError}</p>
-              <button
-                onClick={() =>
-                  dispatch({ type: TODO_ACTIONS.CLEAR_FILTER_ERROR })
-                }
-              >
-                Clear Filter Error
-              </button>
-              <button
-                onClick={() => dispatch({ type: TODO_ACTIONS.RESET_FILTERS })}
-              >
-                Reset Filters
-              </button>
+            <div className="mt-8 flex flex-col items-center gap-6">
+              <div className="w-full bg-error-container text-on-error-container rounded-2xl p-6 flex items-start gap-4 border border-error/10 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                  className="w-6 h-6 shrink-0"
+                  fill="currentColor"
+                >
+                  {/* Font Awesome Free v7.2.0 */}
+                  <path d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM320 384C302.3 384 288 398.3 288 416C288 433.7 302.3 448 320 448C337.7 448 352 433.7 352 416C352 398.3 337.7 384 320 384zM320 192C301.8 192 287.3 207.5 288.6 225.7L296 329.7C296.9 342.3 307.4 352 319.9 352C332.5 352 342.9 342.3 343.8 329.7L351.2 225.7C352.5 207.5 338.1 192 319.8 192z" />
+                </svg>
+                <p className="body-md">{filterError}</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 w-full">
+                <button
+                  className="flex-1 bg-primary-container-light on-primary py-3.5 px-6 rounded-xl hover:bg-primary-container-light active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-md"
+                  onClick={() =>
+                    dispatch({ type: TODO_ACTIONS.CLEAR_FILTER_ERROR })
+                  }
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>Baseline Refresh SVG Icon</title>
+                    <path
+                      fill="currentColor"
+                      d="M17.65 6.35A7.96 7.96 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
+                    ></path>
+                  </svg>
+                  Clear Filter Error
+                </button>
+                <button
+                  className="flex-1 bg-surface border border-outline-variant text-on-surface-variant font-semibold py-3.5 px-6 rounded-xl hover:bg-surface-container-low active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                  onClick={() => dispatch({ type: TODO_ACTIONS.RESET_FILTERS })}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>Filter Reset SVG Icon</title>
+                    <path
+                      fill="currentColor"
+                      d="M22.5 9a7.45 7.45 0 0 0-6.5 3.792V8h-2v8h8v-2h-4.383a5.494 5.494 0 1 1 4.883 8H22v2h.5a7.5 7.5 0 0 0 0-15"
+                    ></path>
+                    <path
+                      fill="currentColor"
+                      d="M26 6H4v3.171l7.414 7.414l.586.586V26h4v-2h2v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8l-7.414-7.415A2 2 0 0 1 2 9.171V6a2 2 0 0 1 2-2h22Z"
+                    ></path>
+                  </svg>
+                  Reset Filters
+                </button>
+              </div>
+              <p className="body-sm text-on-surface-variant text-center max-w-100">
+                If the problem persists, please check your internet connection
+              </p>
             </div>
           )}
         </div>

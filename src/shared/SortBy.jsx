@@ -19,7 +19,7 @@ export default function SortBy({
           value={sortBy}
           onChange={(event) => onSortByChange(event.target.value)}
         >
-          <option value="createdDate">Created Date</option>
+          <option value="createdAt">Created Date</option>
           <option value="title">Title</option>
         </select>
       </div>
